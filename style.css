@@ -253,3 +253,85 @@ body {
 .generate-btn i {
   margin-right: 8px;
 }
+
+
+/* Highlight selected products */
+.product-card.selected {
+  border-color: #ff003b;
+  box-shadow: 0 0 0 3px rgba(255, 0, 59, 0.3);
+}
+
+/* Product hover for interactivity */
+.product-card:hover {
+  border-color: #e3a535;
+  cursor: pointer;
+  transform: translateY(-2px);
+  transition: 0.2s ease;
+}
+
+/* Selected product chip inside Selected Products box */
+.selected-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 14px;
+  width: 100%;
+  font-size: 15px;
+}
+
+.selected-item button {
+  background: none;
+  border: none;
+  color: #ff003b;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.selected-item button:hover {
+  color: #e3a535;
+}
+
+/* Chat styling for user/bot messages */
+.message {
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.user-msg {
+  background: #e3a535;
+  color: white;
+  margin-left: auto;
+}
+
+.bot-msg {
+  background: #f4f4f4;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+/* Loading animation for “thinking…” */
+.bot-msg.loading::after {
+  content: '...';
+  animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
+
+/* Scrollbar polish for chat window */
+.chat-window::-webkit-scrollbar {
+  width: 8px;
+}
+.chat-window::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
