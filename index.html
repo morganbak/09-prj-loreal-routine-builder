@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>L'Oréal | Smart Routine &amp; Product Advisor</title>
+    <title>L'Oréal | Smart Routine & Product Advisor</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
       rel="stylesheet"
@@ -20,13 +20,20 @@
       <!------- Header / Branding ------->
       <header class="site-header">
         <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
-        <h1 class="site-title">Smart Routine &amp; Product Advisor</h1>
+        <h1 class="site-title">Smart Routine & Product Advisor</h1>
+        <button id="rtlToggle" class="rtl-toggle">Toggle RTL Mode</button>
       </header>
 
-      <!-- Category Filter -->
+      <!-- Search + Category Filter -->
       <div class="search-section">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search products by name or keyword..."
+          aria-label="Search products"
+        />
         <select id="categoryFilter">
-          <option value="" disabled selected>Choose a Category</option>
+          <option value="" selected>All Categories</option>
           <option value="cleanser">Cleansers</option>
           <option value="moisturizer">Moisturizers & Treatments</option>
           <option value="haircare">Haircare</option>
@@ -77,12 +84,21 @@
       <footer class="site-footer">
         <p>&copy; 2025 L'Oréal. All rights reserved.</p>
         <nav>
-          <!-- These URLs are placeholders -->
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
           <a href="#">Contact</a>
         </nav>
       </footer>
+    </div>
+
+    <!-- Product Description Modal -->
+    <div id="productModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalBrand"></p>
+        <p id="modalDesc"></p>
+      </div>
     </div>
 
     <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->

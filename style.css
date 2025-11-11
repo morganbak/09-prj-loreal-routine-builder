@@ -36,27 +36,38 @@ body {
   margin-bottom: 10px;
 }
 
-/* category filter */
+/* Search and Category Filter Layout */
 .search-section {
-  margin: 30px 0;
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.search-section input {
+  flex: 2;
+  padding: 14px;
+  font-size: 16px;
+  border: 2px solid #000;
+  border-radius: 8px;
 }
 
 .search-section select {
-  width: 100%;
-  padding: 16px;
-  font-size: 18px;
+  flex: 1;
+  padding: 14px;
+  font-size: 16px;
   border: 2px solid #000;
   border-radius: 8px;
+  background-color: #fff;
   cursor: pointer;
-  background-color: white;
-  font-weight: 500;
 }
 
+.search-section input:focus,
 .search-section select:focus {
   outline: none;
-  border-color: #666;
+  border-color: #e3a535;
 }
+
 
 /* chat section */
 .chatbox {
@@ -334,4 +345,162 @@ body {
 .chat-window::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 4px;
+}
+
+
+/* === Product Modal === */
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #fff;
+  color: #333;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 500px;
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h2 {
+  margin-bottom: 8px;
+  color: #000;
+}
+
+.modal-content p {
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Small 'More Info' button on product cards */
+.more-info-btn {
+  background: #e3a535;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 6px;
+  align-self: start;
+  transition: background 0.2s ease;
+}
+
+.more-info-btn:hover {
+  background: #ff003b;
+}
+/* === RTL Language Support === */
+.rtl {
+  direction: rtl;
+}
+
+.rtl body,
+.rtl .page-wrapper {
+  text-align: right;
+}
+
+.rtl .chat-form {
+  flex-direction: row-reverse;
+}
+
+.rtl .chat-form input {
+  text-align: right;
+}
+
+.rtl .user-msg {
+  margin-left: 0;
+  margin-right: auto;
+  background: #e3a535;
+}
+
+.rtl .bot-msg {
+  background: #f4f4f4;
+  color: #333;
+  border: 1px solid #ddd;
+  text-align: right;
+}
+
+/* RTL-specific layout tweaks */
+.rtl .product-card {
+  flex-direction: row-reverse;
+}
+
+.rtl .selected-item {
+  flex-direction: row-reverse;
+}
+
+.rtl .remove-btn {
+  order: -1;
+}
+
+.rtl .rtl-toggle {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.rtl-toggle {
+  background: #e3a535;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.rtl-toggle:hover {
+  background: #ff003b;
+}
+
+
+
+/* === RTL Support for Product Description Modal === */
+.rtl .modal-content {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl .modal-content h2,
+.rtl .modal-content p {
+  text-align: right;
+}
+
+.rtl .close-btn {
+  right: auto;
+  left: 16px;
 }
